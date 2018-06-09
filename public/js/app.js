@@ -69875,9 +69875,9 @@ var ListaTikets = function (_Component) {
         value: function getelemet(est, estado) {
             var chil = [];
             est.forEach(function (e) {
-                alert(e.id);
+
                 if (e.id == estado) {
-                    alert("igual");
+
                     chil.push(__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                         'option',
                         { key: e.id, selected: 'selected', value: e.id },

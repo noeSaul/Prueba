@@ -73,9 +73,9 @@ class ListaTikets extends Component {
     getelemet(est, estado) {
         let chil = [];
         est.forEach(function (e) {
-            alert(e.id);
+          
             if (e.id == estado) {
-                alert("igual");
+                
                 chil.push(<option key={e.id} selected="selected" value={e.id}  >{e.descripcion}</option>)
             }
             else {
