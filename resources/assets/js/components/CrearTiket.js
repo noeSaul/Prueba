@@ -4,7 +4,7 @@ import {TextField} from '@material-ui/core';
 import Api from '../lib/api';
 // The Roster component matches one of two different routes
 // depending on the full pathname
-class AddTicket extends Component {
+class CrearTiket extends Component {
 
   constructor(props) {
     super(props);
@@ -124,4 +124,4 @@ guardar() {
 
 
 
-export default AddTicket
+export default CrearTiket

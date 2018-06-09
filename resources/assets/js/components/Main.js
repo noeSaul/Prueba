@@ -1,7 +1,7 @@
 import React from 'react'
 import { Switch, Route } from 'react-router-dom'
-import Home from './Home'
-import AddTicket from './AddTicket'
+import ListaTikets from './ListaTikets'
+import CrearTiket from './CrearTiket'
 
 
 // The Main component renders one of the three provided
@@ -12,8 +12,8 @@ import AddTicket from './AddTicket'
 const Main = () => (
   <main>
     <Switch>
-      <Route exact path='/' component={Home}/>
-      <Route path='/addTicket' component={AddTicket}/>
+      <Route exact path='/' component={ListaTikets}/>
+      <Route path='/addTicket' component={CrearTiket}/>
      
     </Switch>
   </main>

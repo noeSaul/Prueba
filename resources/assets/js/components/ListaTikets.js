@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Api from '../lib/api';
 
-class Home extends Component {
+class ListaTikets extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -100,4 +100,4 @@ class Home extends Component {
     }
 }
 
-export default Home;
+export default ListaTikets;

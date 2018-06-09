@@ -69682,7 +69682,7 @@ var Menu = function Menu() {
     { className: 'navbar navbar-expand-lg navbar-light bg-light' },
     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
       'a',
-      { className: 'navbar-brand', href: '#' },
+      { className: 'navbar-brand' },
       'Tickets'
     ),
     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
@@ -69701,8 +69701,8 @@ var Menu = function Menu() {
           { className: 'nav-item' },
           __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
             __WEBPACK_IMPORTED_MODULE_1_react_router_dom__["b" /* Link */],
-            { className: 'nav-link', to: '/addTicket' },
-            'Crear Ticket'
+            { className: 'nav-link', to: '/' },
+            'Lista de Tikets'
           )
         ),
         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
@@ -69710,8 +69710,8 @@ var Menu = function Menu() {
           { className: 'nav-item' },
           __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
             __WEBPACK_IMPORTED_MODULE_1_react_router_dom__["b" /* Link */],
-            { className: 'nav-link', to: '/' },
-            'Home'
+            { className: 'nav-link', to: '/addTicket' },
+            'Crear Ticket'
           )
         )
       )
@@ -69729,8 +69729,8 @@ var Menu = function Menu() {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_router_dom__ = __webpack_require__(61);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__Home__ = __webpack_require__(268);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__AddTicket__ = __webpack_require__(269);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ListaTikets__ = __webpack_require__(268);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__CrearTiket__ = __webpack_require__(269);
 
 
 
@@ -69748,8 +69748,8 @@ var Main = function Main() {
     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
       __WEBPACK_IMPORTED_MODULE_1_react_router_dom__["d" /* Switch */],
       null,
-      __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1_react_router_dom__["c" /* Route */], { exact: true, path: '/', component: __WEBPACK_IMPORTED_MODULE_2__Home__["a" /* default */] }),
-      __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1_react_router_dom__["c" /* Route */], { path: '/addTicket', component: __WEBPACK_IMPORTED_MODULE_3__AddTicket__["a" /* default */] })
+      __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1_react_router_dom__["c" /* Route */], { exact: true, path: '/', component: __WEBPACK_IMPORTED_MODULE_2__ListaTikets__["a" /* default */] }),
+      __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1_react_router_dom__["c" /* Route */], { path: '/addTicket', component: __WEBPACK_IMPORTED_MODULE_3__CrearTiket__["a" /* default */] })
     )
   );
 };
@@ -69775,13 +69775,13 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
 
 
-var Home = function (_Component) {
-    _inherits(Home, _Component);
+var ListaTikets = function (_Component) {
+    _inherits(ListaTikets, _Component);
 
-    function Home(props) {
-        _classCallCheck(this, Home);
+    function ListaTikets(props) {
+        _classCallCheck(this, ListaTikets);
 
-        var _this = _possibleConstructorReturn(this, (Home.__proto__ || Object.getPrototypeOf(Home)).call(this, props));
+        var _this = _possibleConstructorReturn(this, (ListaTikets.__proto__ || Object.getPrototypeOf(ListaTikets)).call(this, props));
 
         _this.state = {
             tickets: [],
@@ -69791,7 +69791,7 @@ var Home = function (_Component) {
         return _this;
     }
 
-    _createClass(Home, [{
+    _createClass(ListaTikets, [{
         key: 'handleClickOpen',
         value: function handleClickOpen(ticket) {
             this.setState({ current: ticket });
@@ -69930,10 +69930,10 @@ var Home = function (_Component) {
         }
     }]);
 
-    return Home;
+    return ListaTikets;
 }(__WEBPACK_IMPORTED_MODULE_0_react__["Component"]);
 
-/* harmony default export */ __webpack_exports__["a"] = (Home);
+/* harmony default export */ __webpack_exports__["a"] = (ListaTikets);
 
 /***/ }),
 /* 269 */
@@ -69962,13 +69962,13 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 // The Roster component matches one of two different routes
 // depending on the full pathname
 
-var AddTicket = function (_Component) {
-  _inherits(AddTicket, _Component);
+var CrearTiket = function (_Component) {
+  _inherits(CrearTiket, _Component);
 
-  function AddTicket(props) {
-    _classCallCheck(this, AddTicket);
+  function CrearTiket(props) {
+    _classCallCheck(this, CrearTiket);
 
-    var _this = _possibleConstructorReturn(this, (AddTicket.__proto__ || Object.getPrototypeOf(AddTicket)).call(this, props));
+    var _this = _possibleConstructorReturn(this, (CrearTiket.__proto__ || Object.getPrototypeOf(CrearTiket)).call(this, props));
 
     _this.state = {
       nombre: '',
@@ -69979,7 +69979,7 @@ var AddTicket = function (_Component) {
     return _this;
   }
 
-  _createClass(AddTicket, [{
+  _createClass(CrearTiket, [{
     key: 'handleName',
     value: function handleName(estado) {
       this.setState({
@@ -70103,10 +70103,10 @@ var AddTicket = function (_Component) {
     }
   }]);
 
-  return AddTicket;
+  return CrearTiket;
 }(__WEBPACK_IMPORTED_MODULE_0_react__["Component"]);
 
-/* harmony default export */ __webpack_exports__["a"] = (AddTicket);
+/* harmony default export */ __webpack_exports__["a"] = (CrearTiket);
 
 /***/ }),
 /* 270 */
