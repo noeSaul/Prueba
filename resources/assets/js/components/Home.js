@@ -37,7 +37,7 @@ class Home extends Component {
     }
 
     loadData(){
-        Api.get("/index").then(resp => {
+        Api.get("/tikets").then(resp => {
             var lista = [];
 
 
@@ -47,7 +47,7 @@ class Home extends Component {
                         <td >{ticket.id}</td>
                         <td >{ticket.nombre}</td>
                         <td >{ticket.descripcion}</td>
-                        <td>  <span className={ticket.estado === "open" ? "badge badge-danger" : "badge badge-success"}>{ticket.estado}</span>
+                        <td>  <span className={ticket.estado === "1" ? "badge badge-danger" : "badge badge-success"}>{ticket.estado}</span>
                         </td>
                         <td >{ticket.created_at}</td>
                         <td>
@@ -78,7 +78,6 @@ class Home extends Component {
                                     <th scope="col">Nombre</th>
                                     <th scope="col">Descripción</th>
                                     <th scope="col">Estado</th>
-                                    <th scope="col">Creado</th>
                                     <th scope="col">
 
                                     </th>

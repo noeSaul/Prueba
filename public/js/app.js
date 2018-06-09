@@ -69826,7 +69826,7 @@ var Home = function (_Component) {
         value: function loadData() {
             var _this3 = this;
 
-            __WEBPACK_IMPORTED_MODULE_1__lib_api__["a" /* default */].get("/index").then(function (resp) {
+            __WEBPACK_IMPORTED_MODULE_1__lib_api__["a" /* default */].get("/tikets").then(function (resp) {
                 var lista = [];
 
                 resp.forEach(function (ticket) {
@@ -69854,7 +69854,7 @@ var Home = function (_Component) {
                             '  ',
                             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                                 'span',
-                                { className: ticket.estado === "open" ? "badge badge-danger" : "badge badge-success" },
+                                { className: ticket.estado === "1" ? "badge badge-danger" : "badge badge-success" },
                                 ticket.estado
                             )
                         ),
@@ -69913,11 +69913,6 @@ var Home = function (_Component) {
                                             'th',
                                             { scope: 'col' },
                                             'Estado'
-                                        ),
-                                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                                            'th',
-                                            { scope: 'col' },
-                                            'Creado'
                                         ),
                                         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('th', { scope: 'col' })
                                     )
