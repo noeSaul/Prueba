@@ -69799,7 +69799,7 @@ var ListaTikets = function (_Component) {
     }, {
         key: 'handleClickOpen',
         value: function handleClickOpen(ticket) {
-            alert(JSON.stringify(val));
+            alert(JSON.stringify(ticket));
         }
     }, {
         key: 'handleConfirm',
@@ -69824,11 +69824,6 @@ var ListaTikets = function (_Component) {
         value: function componentDidMount() {
 
             this.loadData();
-        }
-    }, {
-        key: 'handleClickOpen',
-        value: function handleClickOpen(ticket) {
-            this.setState({ current: ticket });
         }
     }, {
         key: 'loadData',

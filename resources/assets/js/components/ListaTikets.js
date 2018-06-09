@@ -16,7 +16,7 @@ class ListaTikets extends Component {
       }
 
     handleClickOpen(ticket) {
-        alert(JSON.stringify(val));
+        alert(JSON.stringify(ticket));
     }
 
     handleConfirm() {
@@ -37,9 +37,7 @@ class ListaTikets extends Component {
 
         this.loadData();
     }
-    handleClickOpen(ticket){
-        this.setState({current:ticket})
-    }
+ 
 
 
     loadData() {
