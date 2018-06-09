@@ -69783,15 +69783,19 @@ var ListaTikets = function (_Component) {
 
         var _this = _possibleConstructorReturn(this, (ListaTikets.__proto__ || Object.getPrototypeOf(ListaTikets)).call(this, props));
 
-        _this.state = {
-            tickets: [],
-            open: false,
-            current: {}
-        };
+        _this.state = { estado: 0 };
+
+        _this.handleChange = _this.handleChange.bind(_this);
         return _this;
     }
 
     _createClass(ListaTikets, [{
+        key: 'handleChange',
+        value: function handleChange(event) {
+            alert(event.target.value);
+            this.setState({ estado: event.target.value });
+        }
+    }, {
         key: 'handleClickOpen',
         value: function handleClickOpen(ticket) {
             this.setState({ current: ticket });
@@ -69829,46 +69833,65 @@ var ListaTikets = function (_Component) {
             __WEBPACK_IMPORTED_MODULE_1__lib_api__["a" /* default */].get("/tikets").then(function (resp) {
                 var lista = [];
 
-                resp.forEach(function (ticket) {
-                    lista.push(__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                        'tr',
-                        { key: ticket.id },
-                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                            'td',
-                            null,
-                            ticket.id
-                        ),
-                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                            'td',
-                            null,
-                            ticket.nombre
-                        ),
-                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                            'td',
-                            null,
-                            ticket.descripcion
-                        ),
-                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                            'td',
-                            null,
-                            '  ',
-                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                                'span',
-                                { className: ticket.estado === "1" ? "badge badge-danger" : "badge badge-success" },
-                                ticket.estado
-                            )
-                        ),
-                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                            'td',
-                            null,
-                            ticket.created_at
-                        ),
-                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('td', null)
-                    ));
-                });
+                __WEBPACK_IMPORTED_MODULE_1__lib_api__["a" /* default */].get("/estados").then(function (est) {
+                    resp.forEach(function (ticket) {
 
-                _this3.setState({ tickets: lista });
+                        lista.push(__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                            'tr',
+                            { key: ticket.id },
+                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                'td',
+                                null,
+                                ticket.id
+                            ),
+                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                'td',
+                                null,
+                                ticket.nombre
+                            ),
+                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                'td',
+                                null,
+                                ticket.descripcion
+                            ),
+                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                'td',
+                                null,
+                                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                    'select',
+                                    { value: _this3.state.value, onChange: _this3.handleChange },
+                                    _this3.getelemet(est, ticket.estado)
+                                )
+                            )
+                        ));
+
+                        _this3.setState({ tickets: lista });
+                    });
+                });
             });
+        }
+    }, {
+        key: 'getelemet',
+        value: function getelemet(est, estado) {
+            var chil = [];
+            est.forEach(function (e) {
+                alert(e.id);
+                if (e.id == estado) {
+                    alert("igual");
+                    chil.push(__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                        'option',
+                        { key: e.id, selected: 'selected', value: e.id },
+                        e.descripcion
+                    ));
+                } else {
+                    chil.push(__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                        'option',
+                        { key: e.id, value: e.id },
+                        e.descripcion
+                    ));
+                }
+            });
+            return chil;
         }
     }, {
         key: 'render',
@@ -69897,7 +69920,7 @@ var ListaTikets = function (_Component) {
                                         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                                             'th',
                                             { scope: 'col' },
-                                            '#'
+                                            'ID'
                                         ),
                                         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                                             'th',
@@ -69913,8 +69936,7 @@ var ListaTikets = function (_Component) {
                                             'th',
                                             { scope: 'col' },
                                             'Estado'
-                                        ),
-                                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('th', { scope: 'col' })
+                                        )
                                     )
                                 ),
                                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
