@@ -20,6 +20,6 @@ Route::get('tikets/{tiket}', 'TiketController@show');
  
 Route::post('tikets','TiketController@store');
  
-Route::put('tikets/{tiket}','TiketController@update');
+Route::post('tiketsup','TiketController@update');
  
 Route::delete('tikets/{tiket}', 'TiketController@delete');

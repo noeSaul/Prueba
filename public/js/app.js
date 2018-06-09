@@ -69799,43 +69799,26 @@ var ListaTikets = function (_Component) {
     }, {
         key: 'handleClickOpen',
         value: function handleClickOpen(ticket) {
-            alert(JSON.stringify(ticket));
-        }
-    }, {
-        key: 'handleConfirm',
-        value: function handleConfirm() {
-            var _this2 = this;
-
-            __WEBPACK_IMPORTED_MODULE_1__lib_api__["a" /* default */].post("/resolved", this.state.current).then(function (resp) {
-                alert("Ticket marcado como resuelto");
-                _this2.loadData();
-                _this2.setState({ open: false });
-            }).catch(function (ex) {
-                _this2.setState({ open: false });
+            __WEBPACK_IMPORTED_MODULE_1__lib_api__["a" /* default */].post("tiketsup", ticket).then(function (resp) {
+                alert("Ticket se actualizo");
             });
-        }
-    }, {
-        key: 'handleClose',
-        value: function handleClose() {
-            this.setState({ open: false });
         }
     }, {
         key: 'componentDidMount',
         value: function componentDidMount() {
 
-            this.loadData();
+            this.cargar();
         }
     }, {
-        key: 'loadData',
-        value: function loadData() {
-            var _this3 = this;
+        key: 'cargar',
+        value: function cargar() {
+            var _this2 = this;
 
             __WEBPACK_IMPORTED_MODULE_1__lib_api__["a" /* default */].get("/tikets").then(function (resp) {
                 var lista = [];
 
                 __WEBPACK_IMPORTED_MODULE_1__lib_api__["a" /* default */].get("/estados").then(function (est) {
                     resp.forEach(function (ticket) {
-
                         lista.push(__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                             'tr',
                             { key: ticket.id },
@@ -69860,9 +69843,9 @@ var ListaTikets = function (_Component) {
                                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                                     'select',
                                     { onChange: function onChange(e) {
-                                            return _this3.handleChange(ticket, e);
+                                            return _this2.handleChange(ticket, e);
                                         } },
-                                    _this3.getelemet(est, ticket.estado)
+                                    _this2.getelemet(est, ticket.estado)
                                 )
                             ),
                             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
@@ -69871,14 +69854,14 @@ var ListaTikets = function (_Component) {
                                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                                     'button',
                                     { onClick: function onClick() {
-                                            return _this3.handleClickOpen(ticket);
+                                            return _this2.handleClickOpen(ticket);
                                         }, type: 'button', className: 'btn btn-primary' },
                                     'actualizar'
                                 )
                             )
                         ));
 
-                        _this3.setState({ tickets: lista });
+                        _this2.setState({ tickets: lista });
                     });
                 });
             });

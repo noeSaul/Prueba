@@ -16,39 +16,26 @@ class ListaTikets extends Component {
       }
 
     handleClickOpen(ticket) {
-        alert(JSON.stringify(ticket));
+        Api.post("tiketsup", ticket )
+    .then(resp => {alert("Ticket se actualizo");
+    });
     }
 
-    handleConfirm() {
+ 
 
-        Api.post("/resolved", this.state.current).then(resp => {
-            alert("Ticket marcado como resuelto");
-            this.loadData();
-            this.setState({ open: false });
-        }).catch(ex => {
-            this.setState({ open: false });
-        });
-    }
-
-    handleClose() {
-        this.setState({ open: false });
-    }
     componentDidMount() {
 
-        this.loadData();
+        this.cargar();
     }
  
 
 
-    loadData() {
+    cargar() {
         Api.get("/tikets").then(resp => {
             var lista = [];
            
             Api.get("/estados").then(est => {
                 resp.forEach(ticket => {
-
-           
-
                     lista.push(
                         <tr  key={ticket.id}>
                             <td >{ticket.id}</td>
