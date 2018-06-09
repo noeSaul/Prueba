@@ -1,0 +1,2 @@
+
+export const DEFAULT_COMPANY = "DEFAULT_COMPANY"
