@@ -69710,7 +69710,7 @@ var Menu = function Menu() {
           { className: 'nav-item' },
           __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
             __WEBPACK_IMPORTED_MODULE_1_react_router_dom__["b" /* Link */],
-            { className: 'nav-link', to: '/addTicket' },
+            { className: 'nav-link', to: '/crearTikets' },
             'Crear Ticket'
           )
         )
@@ -69749,7 +69749,7 @@ var Main = function Main() {
       __WEBPACK_IMPORTED_MODULE_1_react_router_dom__["d" /* Switch */],
       null,
       __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1_react_router_dom__["c" /* Route */], { exact: true, path: '/', component: __WEBPACK_IMPORTED_MODULE_2__ListaTikets__["a" /* default */] }),
-      __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1_react_router_dom__["c" /* Route */], { path: '/addTicket', component: __WEBPACK_IMPORTED_MODULE_3__CrearTiket__["a" /* default */] })
+      __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1_react_router_dom__["c" /* Route */], { path: '/crearTikets', component: __WEBPACK_IMPORTED_MODULE_3__CrearTiket__["a" /* default */] })
     )
   );
 };

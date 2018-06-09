@@ -15,7 +15,7 @@ const Menu = () => (
       </li>
 
     <li className ="nav-item">
-      <Link className="nav-link" to='/addTicket'>Crear Ticket</Link>
+      <Link className="nav-link" to='/crearTikets'>Crear Ticket</Link>
       </li>
     </ul>
   </div>
