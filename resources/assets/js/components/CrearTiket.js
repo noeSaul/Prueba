@@ -62,7 +62,7 @@ guardar() {
 
 
   var oj={ estado:  this.state.estado, descripcion: this.state.nombre,nombre: this.state.nombre }
-  alert(JSON.stringify(oj));
+ 
 
 
   Api.post("tikets", oj )

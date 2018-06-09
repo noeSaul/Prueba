@@ -69786,20 +69786,20 @@ var ListaTikets = function (_Component) {
         _this.state = { estado: 0 };
 
         _this.handleChange = _this.handleChange.bind(_this);
+        _this.handleClickOpen = _this.handleClickOpen.bind(_this);
         return _this;
     }
 
     _createClass(ListaTikets, [{
         key: 'handleChange',
-        value: function handleChange(event) {
-            alert(event.target.value);
-            this.setState({ estado: event.target.value });
+        value: function handleChange(val, e) {
+
+            val.estado = e.target.value;
         }
     }, {
         key: 'handleClickOpen',
         value: function handleClickOpen(ticket) {
-            this.setState({ current: ticket });
-            this.setState({ open: true });
+            alert(JSON.stringify(val));
         }
     }, {
         key: 'handleConfirm',
@@ -69824,6 +69824,11 @@ var ListaTikets = function (_Component) {
         value: function componentDidMount() {
 
             this.loadData();
+        }
+    }, {
+        key: 'handleClickOpen',
+        value: function handleClickOpen(ticket) {
+            this.setState({ current: ticket });
         }
     }, {
         key: 'loadData',
@@ -69859,8 +69864,21 @@ var ListaTikets = function (_Component) {
                                 null,
                                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                                     'select',
-                                    { value: _this3.state.value, onChange: _this3.handleChange },
+                                    { onChange: function onChange(e) {
+                                            return _this3.handleChange(ticket, e);
+                                        } },
                                     _this3.getelemet(est, ticket.estado)
+                                )
+                            ),
+                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                'td',
+                                null,
+                                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                    'button',
+                                    { onClick: function onClick() {
+                                            return _this3.handleClickOpen(ticket);
+                                        }, type: 'button', className: 'btn btn-primary' },
+                                    'actualizar'
                                 )
                             )
                         ));
@@ -69907,7 +69925,7 @@ var ListaTikets = function (_Component) {
                         { className: 'row justify-content-center' },
                         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                             'div',
-                            { className: 'col-md-12 col-lg-12 col-sm-12' },
+                            { className: 'col-md-12 col-lg-12' },
                             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                                 'table',
                                 { className: 'table' },
@@ -70046,7 +70064,6 @@ var CrearTiket = function (_Component) {
       }
 
       var oj = { estado: this.state.estado, descripcion: this.state.nombre, nombre: this.state.nombre };
-      alert(JSON.stringify(oj));
 
       __WEBPACK_IMPORTED_MODULE_3__lib_api__["a" /* default */].post("tikets", oj).then(function (resp) {
         alert("Ticket se Guardo");

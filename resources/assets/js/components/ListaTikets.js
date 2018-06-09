@@ -7,16 +7,16 @@ class ListaTikets extends Component {
         this.state = {estado: 0};
 
         this.handleChange = this.handleChange.bind(this);
+        this.handleClickOpen = this.handleClickOpen.bind(this);
     }
 
-    handleChange(event) {
-        alert( event.target.value)
-        this.setState({estado: event.target.value});
+    handleChange(val, e) {
+       
+     val.estado=e.target.value;
       }
 
     handleClickOpen(ticket) {
-        this.setState({ current: ticket })
-        this.setState({ open: true });
+        alert(JSON.stringify(val));
     }
 
     handleConfirm() {
@@ -37,6 +37,10 @@ class ListaTikets extends Component {
 
         this.loadData();
     }
+    handleClickOpen(ticket){
+        this.setState({current:ticket})
+    }
+
 
     loadData() {
         Api.get("/tikets").then(resp => {
@@ -45,17 +49,21 @@ class ListaTikets extends Component {
             Api.get("/estados").then(est => {
                 resp.forEach(ticket => {
 
-               
+           
 
                     lista.push(
-                        <tr key={ticket.id}>
+                        <tr  key={ticket.id}>
                             <td >{ticket.id}</td>
                             <td >{ticket.nombre}</td>
                             <td >{ticket.descripcion}</td>
                             <td>
-                            <select value={this.state.value} onChange={this.handleChange}>
+                            <select  onChange={(e) => this.handleChange(ticket, e)}>
                             {this.getelemet(est, ticket.estado)}
                             </select>
+                            </td>
+                            <td>
+                               <button  onClick={() => this.handleClickOpen(ticket)} type="button" className="btn btn-primary">actualizar</button>
+            
                             </td>
                         </tr>);
 
@@ -90,7 +98,7 @@ class ListaTikets extends Component {
             <div>
                 <div className="container">
                     <div className="row justify-content-center">
-                        <div className="col-md-12 col-lg-12 col-sm-12">
+                        <div className="col-md-12 col-lg-12">
                             <table className="table">
                                 <thead>
                                     <tr>
