@@ -1,13 +1,16 @@
 import React, { Component } from 'react';
 import Api from '../lib/api';
+import { ActionCreators } from '../redux/actions'
+import { bindActionCreators } from 'redux'
+import { connect } from 'react-redux';
+
 
 class ListaTikets extends Component {
     constructor(props) {
         super(props);
         this.state = {estado: 0};
-
         this.handleChange = this.handleChange.bind(this);
-        this.handleClickOpen = this.handleClickOpen.bind(this);
+        this.actualizar = this.actualizar.bind(this);
     }
 
     handleChange(val, e) {
@@ -15,7 +18,7 @@ class ListaTikets extends Component {
      val.estado=e.target.value;
       }
 
-    handleClickOpen(ticket) {
+    actualizar(ticket) {
         Api.post("tiketsup", ticket )
     .then(resp => {alert("Ticket se actualizo");
     });
@@ -47,7 +50,7 @@ class ListaTikets extends Component {
                             </select>
                             </td>
                             <td>
-                               <button  onClick={() => this.handleClickOpen(ticket)} type="button" className="btn btn-primary">actualizar</button>
+                               <button  onClick={() => this.actualizar(ticket)} type="button" className="btn btn-primary">actualizar</button>
             
                             </td>
                         </tr>);
@@ -111,4 +114,12 @@ class ListaTikets extends Component {
     }
 }
 
-export default ListaTikets;
+const mapStateToProps = (state, ownProps) => {
+    return {
+        defaultData: state.defaultData
+    };
+}
+function mapDispatchToProps(dispatch) {
+    return bindActionCreators(ActionCreators, dispatch);
+}
+export default connect(mapStateToProps, mapDispatchToProps)(ListaTikets);

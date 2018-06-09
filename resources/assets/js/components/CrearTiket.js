@@ -2,8 +2,11 @@ import React, { Component } from 'react';
 import { Switch, Route } from 'react-router-dom'
 import {TextField} from '@material-ui/core';
 import Api from '../lib/api';
-// The Roster component matches one of two different routes
-// depending on the full pathname
+import { ActionCreators } from '../redux/actions'
+import { bindActionCreators } from 'redux'
+import { connect } from 'react-redux';
+
+
 class CrearTiket extends Component {
 
   constructor(props) {
@@ -122,6 +125,12 @@ guardar() {
 
 
 
-
-
-export default CrearTiket
+const mapStateToProps = (state, ownProps) => {
+  return {
+      defaultData: state.defaultData
+  };
+}
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators(ActionCreators, dispatch);
+}
+export default connect(mapStateToProps, mapDispatchToProps)(CrearTiket);
