@@ -22459,7 +22459,6 @@ api.interceptors.response.use(function (response) {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__default__ = __webpack_require__(272);
 
 
-
 var ActionCreators = Object.assign({}, __WEBPACK_IMPORTED_MODULE_0__default__);
 
 /***/ }),
@@ -22467,9 +22466,9 @@ var ActionCreators = Object.assign({}, __WEBPACK_IMPORTED_MODULE_0__default__);
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return DEFAULT_COMPANY; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return DEFAULT_VALUE; });
 
-var DEFAULT_COMPANY = "DEFAULT_COMPANY";
+var DEFAULT_VALUE = "DEFAULT_VALUE";
 
 /***/ }),
 /* 139 */
@@ -70011,13 +70010,13 @@ function mapDispatchToProps(dispatch) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "setCompany", function() { return setCompany; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "setSomeDefaultValue", function() { return setSomeDefaultValue; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__types__ = __webpack_require__(138);
 
 
-var setCompany = function setCompany(company) {
+var setSomeDefaultValue = function setSomeDefaultValue(value) {
 
-  return Object.assign({ type: __WEBPACK_IMPORTED_MODULE_0__types__["a" /* DEFAULT_COMPANY */] }, company);
+  return Object.assign({ type: __WEBPACK_IMPORTED_MODULE_0__types__["a" /* DEFAULT_VALUE */] }, value);
 };
 
 /***/ }),
@@ -100227,7 +100226,7 @@ thunk.withExtraArgument = createThunkMiddleware;
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "defaultData", function() { return defaultData; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "defaultD", function() { return defaultD; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__actions_types__ = __webpack_require__(138);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__lib_createReducer__ = __webpack_require__(610);
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
@@ -100237,13 +100236,10 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 
 var defaultState = {
-    idCompany: '',
-    nameCompany: '',
-    cuenta: '',
-    enlace: ""
-};
+    estadoaAPersistir: ''
 
-var defaultData = Object(__WEBPACK_IMPORTED_MODULE_1__lib_createReducer__["a" /* default */])(defaultState, _defineProperty({}, __WEBPACK_IMPORTED_MODULE_0__actions_types__["a" /* DEFAULT_COMPANY */], function (state, action) {
+};
+var defaultD = Object(__WEBPACK_IMPORTED_MODULE_1__lib_createReducer__["a" /* default */])(defaultState, _defineProperty({}, __WEBPACK_IMPORTED_MODULE_0__actions_types__["a" /* DEFAULT_VALUE */], function (state, action) {
     return Object.assign({}, action);
 }));
 

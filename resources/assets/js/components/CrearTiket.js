@@ -126,6 +126,7 @@ guardar() {
 
 
 const mapStateToProps = (state, ownProps) => {
+ //aqui cae los estados que se persisten
   return {
       defaultData: state.defaultData
   };

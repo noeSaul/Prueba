@@ -3,15 +3,10 @@ import * as type from '../actions/types'
 import createReducer from '../../lib/createReducer'
 
 const defaultState = {
-    idCompany: '',
-    nameCompany:'',
-    cuenta:'',
-    enlace:""
+    estadoaAPersistir: ''
+   
 };
-
-export const defaultData=  createReducer(defaultState, {
-
-   [type.DEFAULT_COMPANY](state,action){
-        return Object.assign({},action)
+export const defaultD=  createReducer(defaultState, {
+   [type.DEFAULT_VALUE](state,action){return Object.assign({},action)
     }
 });

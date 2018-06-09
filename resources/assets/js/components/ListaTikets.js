@@ -116,6 +116,8 @@ class ListaTikets extends Component {
 
 const mapStateToProps = (state, ownProps) => {
     return {
+
+        //aqui cae los estados que se persisten
         defaultData: state.defaultData
     };
 }

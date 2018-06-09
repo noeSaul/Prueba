@@ -1,2 +1,2 @@
 
-export const DEFAULT_COMPANY = "DEFAULT_COMPANY"
+export const DEFAULT_VALUE = "DEFAULT_VALUE"

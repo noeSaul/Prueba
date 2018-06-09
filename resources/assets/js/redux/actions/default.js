@@ -1,8 +1,8 @@
 import * as type from './types'
 
 
-export const setCompany = (company) => {
+export const setSomeDefaultValue = (value) => {
    
-    return  Object.assign({type:type.DEFAULT_COMPANY},company);
+    return  Object.assign({type:type.DEFAULT_VALUE},value);
     
 };
