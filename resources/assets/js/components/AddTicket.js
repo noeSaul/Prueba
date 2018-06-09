@@ -9,9 +9,9 @@ class AddTicket extends Component {
   constructor(props) {
     super(props);
     this.state = {
-         prioridad:0,
-        estado:'',
-        descripcion:''
+         nombre:'',
+        descripcion:'',
+        estado:0
     };
    
 }
@@ -22,9 +22,9 @@ class AddTicket extends Component {
     });
 }
 
-  handleName(prioridad) {
+  handleName(nombre) {
     this.setState({
-      prioridad: prioridad
+      nombre: nombre
     });
 }
 
@@ -42,25 +42,33 @@ handleChange (name,event) {
 
 guardar() {
 
-  if(this.state.prioridad ===0 ||this.state.estado ===undefined)
+  if(this.state.nombre ==="" ||this.state.nombre ===undefined)
   {
+    alert("completa la nombre");
     return;
   }
 
-  if(this.state.estado ==="" ||this.state.estado ===undefined)
+  if(this.state.estado ===0 ||this.state.estado ===undefined)
   {
+    alert("completa la estado");
     return;
   }
   if(this.state.descripcion ==="" ||this.state.descripcion ===undefined)
   {
-return;
+    alert("completa la descripcion");
+    return;
   }
-  Api.post("/tikets", { estado: this.state.estado, descripcion: this.state.descripcion,prioridad: this.state.prioridad })
+
+
+
+  var oj={ estado:  this.state.estado, descripcion: this.state.nombre,nombre: this.state.nombre }
+  alert(JSON.stringify(oj));
+
+
+  Api.post("tikets", oj )
     .then(resp => {alert("Ticket se Guardo");
     });
-
 }
-
 
   render() {
 
@@ -82,11 +90,11 @@ return;
          </div>
          <div className="form-group">
         <TextField
-          id="prioridad"
-          label="prioridad"
+          id="nombre"
+          label="nombre"
           fullWidth
           value={this.state.prioridad}
-          onChange={(x)=>this.handleChange('prioridad',x)}
+          onChange={(x)=>this.handleChange('nombre',x)}
           margin="normal"
         />
          </div>

@@ -69976,9 +69976,9 @@ var AddTicket = function (_Component) {
     var _this = _possibleConstructorReturn(this, (AddTicket.__proto__ || Object.getPrototypeOf(AddTicket)).call(this, props));
 
     _this.state = {
-      prioridad: 0,
-      estado: '',
-      descripcion: ''
+      nombre: '',
+      descripcion: '',
+      estado: 0
     };
 
     return _this;
@@ -69993,9 +69993,9 @@ var AddTicket = function (_Component) {
     }
   }, {
     key: 'handleName',
-    value: function handleName(prioridad) {
+    value: function handleName(nombre) {
       this.setState({
-        prioridad: prioridad
+        nombre: nombre
       });
     }
   }, {
@@ -70014,17 +70014,24 @@ var AddTicket = function (_Component) {
     key: 'guardar',
     value: function guardar() {
 
-      if (this.state.prioridad === 0 || this.state.estado === undefined) {
+      if (this.state.nombre === "" || this.state.nombre === undefined) {
+        alert("completa la nombre");
         return;
       }
 
-      if (this.state.estado === "" || this.state.estado === undefined) {
+      if (this.state.estado === 0 || this.state.estado === undefined) {
+        alert("completa la estado");
         return;
       }
       if (this.state.descripcion === "" || this.state.descripcion === undefined) {
+        alert("completa la descripcion");
         return;
       }
-      __WEBPACK_IMPORTED_MODULE_3__lib_api__["a" /* default */].post("/tikets", { estado: this.state.estado, descripcion: this.state.descripcion, prioridad: this.state.prioridad }).then(function (resp) {
+
+      var oj = { estado: this.state.estado, descripcion: this.state.nombre, nombre: this.state.nombre };
+      alert(JSON.stringify(oj));
+
+      __WEBPACK_IMPORTED_MODULE_3__lib_api__["a" /* default */].post("tikets", oj).then(function (resp) {
         alert("Ticket se Guardo");
       });
     }
@@ -70063,12 +70070,12 @@ var AddTicket = function (_Component) {
                 'div',
                 { className: 'form-group' },
                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2__material_ui_core__["a" /* TextField */], {
-                  id: 'prioridad',
-                  label: 'prioridad',
+                  id: 'nombre',
+                  label: 'nombre',
                   fullWidth: true,
                   value: this.state.prioridad,
                   onChange: function onChange(x) {
-                    return _this2.handleChange('prioridad', x);
+                    return _this2.handleChange('nombre', x);
                   },
                   margin: 'normal'
                 })
